@@ -1,88 +1,34 @@
 <template>
   <main>
     <div class="container py-4">
-      <div class="row g-3">
-        <div class="col col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col col-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <my-button @click="sayHello"></my-button>
+      <label-input></label-input>
+      <hr />
+      <fancy-button>click</fancy-button>
+      <fancy-button></fancy-button>
+      <hr />
+      <app-card>
+        <template #[slotArgs]># 상단</template>
+        중단 입니다.(암시적)
+        <!--        <template #footer># 상단</template>-->
+      </app-card>
     </div>
   </main>
 </template>
 
 <script>
+import MyButton from './MyButton.vue'
+import LabelInput from './LabelInput.vue'
+import FancyButton from './FancyButton.vue'
+import AppCard from './AppCard.vue'
+import { ref } from 'vue'
 export default {
+  components: { MyButton, LabelInput, FancyButton, AppCard },
   setup() {
-    return {}
+    const sayHello = () => alert('안녕하세요')
+
+    const slotArgs = ref('header')
+    return { sayHello, slotArgs }
   },
 }
 </script>
