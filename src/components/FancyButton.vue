@@ -1,11 +1,18 @@
 <template>
   <button class="fancy-btn">
-    <slot>hello</slot>
+    <slot :fancyMessage="fancyMessage">hello</slot>
   </button>
 </template>
 
 <script>
-export default {}
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    const fancyMessage = ref('FancyMessage')
+    return { fancyMessage }
+  },
+}
 </script>
 
 <style scoped>
