@@ -1,17 +1,11 @@
 <template>
   <main>
-    <template-refs></template-refs>
+    <dynamic-comp></dynamic-comp>
   </main>
 </template>
 
-<script>
-import TemplateRefs from './TemplateRefs.vue'
-export default {
-  components: { TemplateRefs },
-  setup() {
-    return {}
-  },
-}
+<script setup>
+import DynamicComp from './DynamicComp.vue'
 </script>
 
 <style scoped></style>
